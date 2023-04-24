@@ -22,7 +22,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 
             boton.addEventListener('click', function () {
                 const numeroIngresado = campoNumero.value;
-                const data = {numero: numeroIngresado};
                 const url = `http://localhost:8080/RESTRabbit/webresources/fibonacci/${numeroIngresado}`;
 
                 fetch(url)
