@@ -48,7 +48,6 @@ public class GenericResource {
             int result = sendRpcRequest(n);
             return "El número Fibonacci de " + n + " es: " + result;
         } catch (Exception e) {
-            e.printStackTrace();
             return "Error al obtener el número Fibonacci";
         }
     }

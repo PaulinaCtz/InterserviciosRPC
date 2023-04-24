@@ -10,6 +10,30 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>TODO write content</div>
+        <label>Ingresa un número: </label>
+        <input type="number" id="numero">
+        <button id="miBoton">Fibonacci</button>
+        <label>Resultado:</label>
+        <input type="text" id="resultado" readonly size="100">
+        <script>
+            const boton = document.getElementById('miBoton');
+            const campoNumero = document.getElementById('numero');
+            const campoResultado = document.getElementById('resultado');
+
+            boton.addEventListener('click', function () {
+                const numeroIngresado = campoNumero.value;
+                const data = {numero: numeroIngresado};
+                const url = `http://localhost:8080/RESTRabbit/webresources/fibonacci/${numeroIngresado}`;
+
+                fetch(url)
+                        .then(response => response.text())
+                        .then(resultado => {
+                            campoResultado.value=resultado;
+                        })
+                        .catch(error => {
+                            alert(`Error en la petición: ${error.response.statusText}`);
+                        });
+            });
+        </script>
     </body>
 </html>
